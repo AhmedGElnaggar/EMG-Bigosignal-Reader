@@ -17,7 +17,7 @@ BUFFER_SIZE = FS * BUFFER_SECONDS
 raw_buffer = deque([0.0] * BUFFER_SIZE, maxlen=BUFFER_SIZE)
 lock = threading.Lock()
 
-# 20-450 Hz bandpass (500 Hz is Nyquist at FS=1000, so stay under it)
+# 20-450 Hz bandpass (500 Hz is Nyquist at FS=1000)
 SOS = butter(4, [20, 450], btype="bandpass", fs=FS, output="sos")
 
 def simulated_emg():
